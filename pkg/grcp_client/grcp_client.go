@@ -22,7 +22,7 @@ func NewToDoListClient() Client {
 	if err != nil {
 		log.Fatalf("did not connect: %s", err)
 	}
-	defer conn.Close()
+	//defer conn.Close()
 
 	c := toDoList.NewToDoListServiceClient(conn)
 
