@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "github.com/MaxPolarfox/toDoList/internal/grcp/service";
+
+import "toDoList/internal/proto-files/domain/toDoList.proto";
+
+// ToDoListService Definition
+service ToDoListService {
+//  rpc SayHello(Message) returns (Message) {}
+
+  rpc AddTask(domain.Task) returns (AddTaskResponse) {}
+
+}
+
+message AddTaskResponse {
+  domain.Task addedTask = 1;
+  Error error = 2;
+}
+
+message Error {
+  string code = 1;
+  string message = 2;
+}
+
+// protoc --go_out=plugins=grpc:internal/proto-files/service toDoList-service.proto

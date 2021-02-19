@@ -7,7 +7,8 @@ import (
 
 type Server struct {}
 
+
 func (s *Server) SayHello (ctx context.Context, message *Message) (*Message, error) {
-	log.Printf("Recieving msg body from grcp_client: %s", message.Body)
+	log.Printf("Recieving msg body from client: %s", message.Body)
 	return &Message{Body: "Hello for the Server"}, nil
 }
